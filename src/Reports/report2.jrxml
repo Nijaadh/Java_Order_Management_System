@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="80965fcd-6e5f-4a08-83eb-2ba862ca9458">
+	<property name="ireport.zoom" value="2.143588810000003"/>
+	<property name="ireport.x" value="64"/>
+	<property name="ireport.y" value="576"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM user]]>
+	</queryString>
+	<field name="iduser" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="135" y="0" width="407" height="42" uuid="624f7954-1249-4144-bdb9-d09c555dd94d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[MLT HOLDINGS (PVT) LTD.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="104" height="91" uuid="8ffa6265-fc0e-419b-ba14-1c01ae8495f7"/>
+				<imageExpression><![CDATA["D:\\Standalone project Backup\\Interface\\MLT 8.2.24\\src\\Reports\\MLT LOGO.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="455" y="71" width="100" height="20" uuid="0918936a-b71e-4432-a4ad-6a4ba23b803e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="42" width="555" height="20" uuid="253818b4-3a56-426a-b9df-6857765ebc25"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[REPORT OF PENDING ORDERS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="407" y="2" width="100" height="20" uuid="99555df8-a417-45dc-8387-aeea31df1360"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[User Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="2" width="100" height="20" uuid="b15ba362-faae-45bb-bd49-47a070db7047"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[User Id]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="24" width="555" height="1" uuid="0ee3e08c-0370-41d9-b007-e5ae99f2c636"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="92" splitType="Stretch">
+			<textField>
+				<reportElement x="407" y="0" width="100" height="20" uuid="23274001-e7d9-4fed-91a6-52a616034030"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="0" width="100" height="20" uuid="304f7471-bbf0-4fb7-957b-a99c85f9efd7"/>
+				<textFieldExpression><![CDATA[$F{iduser}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="454" y="34" width="101" height="20" uuid="c4f1d85b-35c2-4fb8-af1b-6f15e114bb0f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="615" y="34" width="40" height="20" uuid="f7d588e2-d575-41c3-b28f-1800d7a8ee22"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="25b5c5cf-bd57-43e7-b890-e7ecea618df3"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

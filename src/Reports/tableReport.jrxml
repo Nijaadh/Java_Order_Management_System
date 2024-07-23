@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c4ed5a98-7c4b-416d-b173-db806d38157a">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="89"/>
+	<queryString>
+		<![CDATA[SELECT * FROM items ORDER BY CASE WHEN SUBSTRING(itemId, 1, 2) REGEXP '^[a-zA-Z]+$' THEN 0 ELSE 1 END, SUBSTRING(itemId, 1, 2), CAST(SUBSTRING(itemId, 3) AS UNSIGNED);
+]]>
+	</queryString>
+	<field name="itemId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="itemDiscription" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="variable1" class="java.lang.String">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="45" width="510" height="20" uuid="b670f12e-f6eb-43d3-97bd-915ba4455c6a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[REPORT OF PENDING ORDERS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="3" y="3" width="104" height="91" uuid="04a3e50d-5652-428a-9094-49ef07d90b53"/>
+				<imageExpression><![CDATA["D:\\Standalone project Backup\\Interface\\MLT 8.2.24\\src\\Reports\\MLT LOGO.jpg"]]></imageExpression>
+			</image>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="456" y="74" width="100" height="20" uuid="6628127d-84be-41a2-a87d-090837f45597"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="3" width="498" height="42" uuid="b6c70040-dd9d-4d37-ba60-222f2794e0c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[MLT HOLDINGS (PVT) LTD.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="11" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="37" y="10" width="100" height="20" uuid="51be9b3d-fe52-4978-8aa5-cffde1649888"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[PART NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="10" width="36" height="20" uuid="83b7b9f8-c110-4fc0-9a43-ea9ef9bab8d2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="10" width="150" height="20" uuid="c42fdc4c-3ef9-4c67-99c4-5554dda750f8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[DISCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="10" width="103" height="20" uuid="b73fff26-01fe-49f0-a035-6abf86758ee0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[VEHICLE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="37" width="555" height="1" uuid="4e7756bc-a0d4-4d40-a504-0f44f60e0eb6"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="1" width="100" height="20" uuid="33e127b8-feb1-4d21-b956-3ed9cc2f63c0"/>
+				<textFieldExpression><![CDATA[$F{itemId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="1" width="100" height="20" uuid="6eb91697-b192-46fd-ae94-da60a26c7e4f"/>
+				<textFieldExpression><![CDATA[$F{itemDiscription}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="1" width="100" height="20" uuid="13dfce48-553c-4246-bb0a-30a8b836f5ff"/>
+				<textFieldExpression><![CDATA[$F{vehicleName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="37" height="20" uuid="a98415ca-2bf9-4967-9112-063cb66885b6"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="16" width="553" height="20" uuid="f5e4d610-71ed-4e19-9d33-7123cb25721a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[***mlt***]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="14" width="101" height="20" uuid="00fcfd99-34c1-49d6-b602-0a672ae7e1ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="9" width="554" height="1" uuid="d09db491-a69c-4bf5-b7cc-dcfe57295997"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="11" splitType="Stretch"/>
+	</summary>
+</jasperReport>
